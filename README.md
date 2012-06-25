@@ -34,7 +34,7 @@ variable will **only** be set if it is not already defined or is blank:
     JAVA_OPTS?=-server -Xmx768m -Xms768m -Xmn128m -Xss20m
 
 In the above case, `JAVA_OPTS` will only be set if `$JAVA_OPTS` is
-currently empty (ie, if `-z "$JAVA_OPTS"` is true).
+currently empty (i.e., if `[ -z "$JAVA_OPTS" ]` is true).
 
 Spaces are allowed in values; quoting is not necessary. Expansion and
 command substitution are not allowed. Lines beginning with `#` or any
@@ -48,7 +48,18 @@ directories of the current directory will be set. Variables from the
 Use the `rbenv vars` command to print all environment variables in the
 order they'll be set.
 
+## Version History
+
+**1.1.0** (June 25, 2012)
+
+* Added support for conditional variable assignments using
+  `?=`. Thanks to Scott Gonyea for the patch.
+
+**1.0.0** (September 27, 2011)
+
+* Initial public release.
+
 ## License
 
-&copy; 2011 Sam Stephenson. Released under the MIT license. See
+&copy; 2012 Sam Stephenson. Released under the MIT license. See
 `LICENSE` for details.
